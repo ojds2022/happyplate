@@ -106,7 +106,7 @@ const [potassium, setPotassium] = useState("");*/}
       });
     }
   },[]);
- 
+
   return (
     <div
     className="h-screen bg-center bg-50% bg-sky-blue home"
