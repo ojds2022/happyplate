@@ -18,7 +18,9 @@ const UserInfo = () => {
     const weightGain = 1.15;
     const exWeightGain = 1.3;
 
-    const getUserInput = () => {
+    const getUserInput = (event) => {
+        event.preventDefault(); // Prevent the default form submission
+
         setShowRecCalIntake(true);
         const age = document.querySelector("#userAge");
         const weight = document.querySelector("#userWeight");
@@ -103,16 +105,16 @@ const UserInfo = () => {
     }
 
     return (
-        <div className="flex flex-col h-screen overflow-scroll bg-center bg-50% bg-sky-blue home" style={{ backgroundImage: `url(${BackgroundImage})` }} >
+        <div className="flex flex-col h-screen bg-center bg-50% bg-sky-blue home" style={{ backgroundImage: `url(${BackgroundImage})` }} >
             {showRecCalIntake === true ? (
                 <>
-                <div className="grid h-full">
+                <div className="grid h-full drop-shadow-xl">
                     <div className="w-10/12 py-5 mb-32 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
                         <h2 className="text-hot-pink">Your daily caloric intake recommendation is {tdee}</h2>
                         <Link to="/dailyNutritionTracker">
                             <button
                                 id="searchButton"
-                                className="px-1 border-0 rounded cursor-pointer bg-hot-pink hover:bg-pale-green"
+                                className="px-1 border-0 rounded shadow-md cursor-pointer bg-hot-pink hover:bg-pale-green"
                                 type="submit"
                             >
                                 Continue
@@ -123,70 +125,69 @@ const UserInfo = () => {
                 </>
             ) : (
                 <>
-                <div className="grid h-full">
-                    <div className="w-10/12 py-1 place-self-center bg-corn-silk rounded-xl">
-                        <h2 className="mb-3 text-xl text-center text-hot-pink">
+                <div className="flex flex-col drop-shadow-xl">
+                    <div className="w-10/12 py-1 mt-24 place-self-center bg-corn-silk rounded-xl">
+                        <h2 className="text-xl text-center text-hot-pink">
                             Please enter your:
                         </h2>
-                        <div className="flex flex-col">
-                            <div className="pb-5 pl-5">
-                                <span className="pr-3 text-hot-pink">Age</span>
-                                <input id="userAge" className="" type="text" placeholder="years" required />
-                            </div>
-                            {/*<div className="pb-5">
-                                <div id="radio-buttons">
-                                    <span className="pr-3 text-hot-pink">Sex</span>
-                                    <label for="male" className="radio-inline">Male</label>
-                                    <input type="radio" id="male" name="sex" value="male" className="" />
-                                    <label for="female" className="radio-inline">Female</label>
-                                    <input type="radio" id="female" name="sex" value="female" className="" />
+                        <form onSubmit={getUserInput} className="py-0">
+                            <div className="flex flex-col">
+                                <div className="pb-2">
+                                    <span className="pr-3 text-hot-pink">Age</span>
+                                    <input id="userAge" className="w-2/3" type="text" placeholder="years" required />
                                 </div>
-            </div>*/}
-                            <div className="pb-5 pl-5">
-                                <span className="pr-3 text-hot-pink">Weight</span>
-                                <input id="userWeight" className="" type="text" placeholder="pounds" required />
+                                {/*<div className="">
+                                    <div id="radio-buttons">
+                                        <span className="pr-3 text-hot-pink">Sex</span>
+                                        <label for="male" className="radio-inline">Male</label>
+                                        <input type="radio" id="male" name="sex" value="male" className="" />
+                                        <label for="female" className="radio-inline">Female</label>
+                                        <input type="radio" id="female" name="sex" value="female" className="" />
+                                    </div>
+                </div>*/}
+                                <div className="pb-2">
+                                    <span className="pr-3 text-hot-pink">Weight</span>
+                                    <input id="userWeight" className="w-2/3" type="text" placeholder="pounds" required />
+                                </div>
+                                <div className="pb-2">
+                                    <span className="pr-3 text-hot-pink">Height</span>
+                                    <span className="pr-1">
+                                        <input id="userHeightFeet" className="w-1/3" type="text" placeholder="feet" required />
+                                    </span>
+                                    <span className="">
+                                        <input id="userHeightInches" className="w-1/3" type="text" placeholder="inches" required />
+                                    </span>
+                                </div>
+                                <div className="pb-2 text-center">
+                                    <label for="pet-select" className="text-hot-pink">Activity Level</label>
+                                    <select name="activityLevel" id="activity-level" required>
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="sedentary">Sedentary</option>
+                                        <option value="lightly active">Lightly Active</option>
+                                        <option value="moderately active">Moderately Active</option>
+                                        <option value="very active">Very Active</option>
+                                    </select>
+                                </div>
+                                <div className="text-center">
+                                    <label for="pet-select" className="text-hot-pink">Desired Weight Change</label>
+                                    <select name="weightChange" id="weight-change" required>
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="extreme weight loss">Fast Weight Loss - 2 lb/wk</option>
+                                        <option value="weight loss">Weight Loss - 1 lb/wk</option>
+                                        <option value="maintain weight">Maintain Weight</option>
+                                        <option value="weight gain">Weight Gain - 1 lb/wk</option>
+                                        <option value="extreme weight gain">Fast Weight Gain - 2 lb/wk</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div className="pb-5 pl-5">
-                                <span className="pr-3 text-hot-pink">Height</span>
-                                <span className="pr-1">
-                                    <input id="userHeightFeet" className="w-20" type="text" placeholder="feet" required />
-                                </span>
-                                <span className="">
-                                    <input id="userHeightInches" className="w-20" type="text" placeholder="inches" required />
-                                </span>
-                            </div>
-                            <div className="pb-5 text-center">
-                                <label for="pet-select" className="text-hot-pink">Activity Level</label>
-                                <select name="activityLevel" id="activity-level">
-                                    <option value="">--Please choose an option--</option>
-                                    <option value="sedentary">Sedentary</option>
-                                    <option value="lightly active">Lightly Active</option>
-                                    <option value="moderately active">Moderately Active</option>
-                                    <option value="very active">Very Active</option>
-                                </select>
-                            </div>
-                            <div className="pb-5 text-center">
-                                <label for="pet-select" className="text-hot-pink">Desired Weight Change</label>
-                                <select name="weightChange" id="weight-change">
-                                    <option value="">--Please choose an option--</option>
-                                    <option value="extreme weight loss">Extreme Weight Loss - 2 lb/week</option>
-                                    <option value="weight loss">Weight Loss - 1 lb/week</option>
-                                    <option value="maintain weight">Maintain Weight</option>
-                                    <option value="weight gain">Weight Gain - 1 lb/week</option>
-                                    <option value="extreme weight gain">Extreme Weight Gain - 2 lb/week</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="flex justify-center">
                             <button
                                 id="searchButton"
-                                className="px-1 border-0 rounded cursor-pointer bg-hot-pink hover:bg-pale-green"
+                                className="mb-2 border-0 rounded shadow-md cursor-pointer place-self-center bg-hot-pink hover:bg-pale-green"
                                 type="submit"
-                                onClick={getUserInput}
                             >
                                 Continue
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 </>

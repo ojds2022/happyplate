@@ -72,14 +72,14 @@ const [potassium, setPotassium] = useState("");*/}
       labels: ['Protein', 'Carbs', 'Fats', 'Sugars'],
       datasets: [
         {
-          label: 'Percentage',
+          label: 'percentage',
           data: [data.protein_g, data.carbohydrates_total_g, data.fat_total_g, data.sugar_g],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)',
-            'rgba(75, 192, 192, 0.5)',
-            'rgba(153, 102, 255, 0.5)',
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
           ],
           hoverBackgroundColor: [
             'rgba(255, 99, 132, 1)',
@@ -116,8 +116,8 @@ const [potassium, setPotassium] = useState("");*/}
         <>
         <div className='flex flex-col items-center h-screen'>
           <div className='flex-grow px-5 mt-28'>
-            <h2 className="text-center">Nutritional Breakdown</h2>
-            <Pie options={options} data={chartData} />
+            <div className="py-1 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Breakdown</h2></div>
+            <div className="pt-5"><Pie options={options} data={chartData} /></div>
           </div>
         </div>
         <div className="z-20 grid content-center">
@@ -129,7 +129,7 @@ const [potassium, setPotassium] = useState("");*/}
         </div>
         </>
     ) : (
-        <div className="grid h-full">
+        <div className="grid h-full drop-shadow-xl">
           <div className="w-10/12 py-5 mb-32 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
             <h2 className="mx-auto mb-3 text-xl rounded xl:text-3xl 3xl:text-6xl 3xl:p-4 text-hot-pink">
                 Enter a food or beverage to get a nutritional percentage breakdown!
@@ -137,7 +137,7 @@ const [potassium, setPotassium] = useState("");*/}
             <input id="inputField" className="xl:w-60 xl:h-12 xl:text-2xl 3xl:w-96 3xl:h-20 3xl:text-4xl" type="text" placeholder="Enter here..." />
             <button
                 id="searchButton"
-                className="h-6 ml-1 border-0 rounded cursor-pointer w-14 xl:h-12 xl:w-32 3xl:h-20 3xl:w-44 xl:text-xl 3xl:text-3xl xl:ml-3 3xl:ml-5 3xl:rounded-xl bg-hot-pink hover:bg-pale-green"
+                className="h-6 ml-1 border-0 rounded shadow-md cursor-pointer w-14 xl:h-12 xl:w-32 3xl:h-20 3xl:w-44 xl:text-xl 3xl:text-3xl xl:ml-3 3xl:ml-5 3xl:rounded-xl bg-hot-pink hover:bg-pale-green"
                 type="submit"
                 onClick={fetchNutrition}
             >

@@ -25,11 +25,6 @@ const Navbar = () => {
               About
             </span>
           </Link>
-          {/*<Link to="/">
-            <span className="text-lg text-hot-pink hover:text-pale-green md:text-xl lg:text-2xl xl:text-3xl 2xl:text-5xl">
-              Portfolio
-            </span>
-          </Link>*/}
           <button
             className="bg-transparent border-0 cursor-pointer burger"
             onClick={toggleNavbar}
