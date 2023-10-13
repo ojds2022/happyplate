@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import { UserInfo } from "./pages/userInfo";
-import { DailyNutritionTracker } from "./pages/dailyNutritionTracker";
+import { NutritionBreakdown } from "./pages/nutritionBreakdown";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
 
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/userinfo" element={<UserInfo />} />
-          <Route path="/dailyNutritionTracker" element={<DailyNutritionTracker />} />
+          <Route path="/nutritionBreakdown" element={<NutritionBreakdown />} />
         </Routes>
         <Footer />
       </Router>

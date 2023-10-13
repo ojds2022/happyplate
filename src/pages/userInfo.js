@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {Link} from "react-router-dom";
 import BackgroundImage from "../assets/foodIcons.png";
 import '../styles/Home.css';
@@ -111,7 +111,7 @@ const UserInfo = () => {
                 <div className="grid h-full drop-shadow-xl">
                     <div className="w-10/12 py-5 mb-32 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
                         <h2 className="text-hot-pink">Your daily caloric intake recommendation is {tdee}</h2>
-                        <Link to="/dailyNutritionTracker">
+                        <Link to="/nutritionBreakdown">
                             <button
                                 id="searchButton"
                                 className="px-1 border-0 rounded shadow-md cursor-pointer bg-hot-pink hover:bg-pale-green"

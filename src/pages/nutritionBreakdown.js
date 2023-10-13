@@ -20,11 +20,11 @@ export const options = {
   },
 };
 
-const DailyNutritionTracker = () => {
+const NutritionBreakdown = () => {
   const [showLabel, setShowLabel] = useState(false);
+  const [name, setName] = useState("");
 
-  {/*const [name, setName] = useState("");
-  const [servingSize, setServingSize] = useState("");
+  {/*const [servingSize, setServingSize] = useState("");
   const [calories, setCalories] = useState("");
   const [fatTotal, setFatTotal] = useState("");
   const [fatSat, setFatSat] = useState("");
@@ -68,6 +68,7 @@ const [potassium, setPotassium] = useState("");*/}
   };
 
   const postNutrition = (data) => {
+    setName(data.name);
     setChartData({
       labels: ['Protein', 'Carbs', 'Fats', 'Sugars'],
       datasets: [
@@ -116,7 +117,7 @@ const [potassium, setPotassium] = useState("");*/}
         <>
         <div className='flex flex-col items-center h-screen'>
           <div className='flex-grow px-5 mt-28'>
-            <div className="py-1 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Breakdown</h2></div>
+            <div className="rounded-md  drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Breakdown: {name}</h2></div>
             <div className="pt-5"><Pie options={options} data={chartData} /></div>
           </div>
         </div>
@@ -150,4 +151,4 @@ const [potassium, setPotassium] = useState("");*/}
   );
 };
 
-export { DailyNutritionTracker };
+export { NutritionBreakdown };
