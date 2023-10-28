@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Pie, Bar } from 'react-chartjs-2';
 import BackgroundImage from "../assets/foodIcons.png";
 import '../styles/Home.css';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export const options = {
   responsive: true,
@@ -16,6 +16,19 @@ export const options = {
     title: {
       display: false,
       text: 'Nutritional Breakdown',
+    },
+  },
+};
+
+export const barOptions = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'bottom',
+    },
+    title: {
+      display: false,
+      text: 'Chart.js Bar Chart',
     },
   },
 };
@@ -37,6 +50,17 @@ const NutritionBreakdown = () => {
 const [potassium, setPotassium] = useState("");*/}
 
   const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: '',
+        data: [],
+        backgroundColor: [],
+      },
+    ],
+  });
+
+  const [barChartData, setBarChartData] = useState({
     labels: [],
     datasets: [
       {
@@ -69,6 +93,7 @@ const [potassium, setPotassium] = useState("");*/}
 
   const postNutrition = (data) => {
     setName(data.name);
+
     setChartData({
       labels: ['Protein', 'Carbs', 'Fats', 'Sugars'],
       datasets: [
@@ -92,6 +117,31 @@ const [potassium, setPotassium] = useState("");*/}
         },
       ],
     });
+
+    setBarChartData({
+      labels: ['Protein', 'Carbs', 'Fats', 'Sugars'],
+      datasets: [
+        {
+          label: 'percentage',
+          data: [data.protein_g, data.carbohydrates_total_g, data.fat_total_g, data.sugar_g],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+          ],
+          hoverBackgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+          ],
+        },
+      ],
+    });
+
   setShowLabel(!showLabel);
   };
   
@@ -115,19 +165,24 @@ const [potassium, setPotassium] = useState("");*/}
     >
     {showLabel === true ? (
         <>
-        <div className='flex flex-col items-center h-screen'>
-          <div className='flex-grow px-5 mt-28'>
-            <div className="rounded-md  drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Breakdown: {name}</h2></div>
-            <div className="pt-5"><Pie options={options} data={chartData} /></div>
+        <div className='flex flex-col items-center overflow-scroll pt-28'>
+          <div className='flex-grow px-5 pb-28'>
+            <div className="text-center"><h1 className="mb-1 text-3xl font-bold text-white capitalize">{name}</h1></div>
+            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional percentage</h2></div>
+            <div className=""><Pie options={options} data={chartData} /></div>
+            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">More Data</h2></div>
+            <div className=""><Bar options={barOptions} data={barChartData} /></div>
+            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">More Data</h2></div>
+            <div className=""><Bar options={barOptions} data={barChartData} /></div>
           </div>
         </div>
-        <div className="z-20 grid content-center">
+        {/* <div className="z-20 grid content-center">
             <span className='place-self-center'>
                 <Link to='/'>
                     <button id='searchAgain' className='w-24 h-6 mt-4 ml-1 border-0 rounded cursor-pointer xxs:text-xl xxs:w-32 xxs:h-8 xl:w-40 xl:h-10 xl:text-xl 3xl:w-72 3xl:h-20 3xl:text-4xl xl:rounded-lg 3xl:rounded-2xl' >Add more</button>
                 </Link>
             </span>
-        </div>
+        </div> */}
         </>
     ) : (
         <div className="grid h-full drop-shadow-xl">
