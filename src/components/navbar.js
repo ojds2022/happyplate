@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 flex flex-row w-full h-20 xl:h-24 2xl:h-40 navbar bg-corn-silk">
+    <div className="fixed top-0 z-50 flex flex-row w-full h-20 xl:h-24 2xl:h-40 navbar bg-corn-silk">
       {openLinks ? (
         <div className="flex items-center justify-between px-6 md:justify-around grow">
           <Link to="/">

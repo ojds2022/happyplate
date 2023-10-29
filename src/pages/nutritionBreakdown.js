@@ -21,6 +21,7 @@ export const options = {
 };
 
 export const barOptions = {
+  indexAxis: 'y',
   responsive: true,
   plugins: {
     legend: {
@@ -86,12 +87,14 @@ const [potassium, setPotassium] = useState("");*/}
       const response = await fetch(url, options);
       const result = await response.json();
       postNutrition(result[0]);
+      console.log(result);
     } catch (error) {
       console.error(error);
     }
   };
 
   const postNutrition = (data) => {
+    
     setName(data.name);
 
     setChartData({
@@ -119,24 +122,28 @@ const [potassium, setPotassium] = useState("");*/}
     });
 
     setBarChartData({
-      labels: ['Protein', 'Carbs', 'Fats', 'Sugars'],
+      labels: ['Calories', 'Carbs', 'Protein', 'Fats', 'Sugars', 'Sodium', 'Potassium'],
       datasets: [
         {
-          label: 'percentage',
-          data: [data.protein_g, data.carbohydrates_total_g, data.fat_total_g, data.sugar_g],
+          label: '',
+          data: [data.calories, data.carbohydrates_total_g, data.protein_g, data.fat_total_g, data.sugar_g, data.sodium_mg / 1000, data.potassium_mg / 1000],
           backgroundColor: [
             'rgba(255, 99, 132, 0.7)',
             'rgba(54, 162, 235, 0.7)',
             'rgba(255, 206, 86, 0.7)',
             'rgba(75, 192, 192, 0.7)',
             'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 0, 255, 0.7),',
+            'rgba(89, 45, 134, 0.7)'
           ],
           hoverBackgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 0, 255, 0.7),',
+            'rgba(89, 45, 134, 0.7)'
           ],
         },
       ],
@@ -168,10 +175,10 @@ const [potassium, setPotassium] = useState("");*/}
         <div className='flex flex-col items-center overflow-scroll pt-28'>
           <div className='flex-grow px-5 pb-28'>
             <div className="text-center"><h1 className="mb-1 text-3xl font-bold text-white capitalize">{name}</h1></div>
-            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional percentage</h2></div>
-            <div className=""><Pie options={options} data={chartData} /></div>
-            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">More Data</h2></div>
+            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center px-1 text-white text-lg font-bold .home">Nutritional Breakdown (100g)</h2></div>
             <div className=""><Bar options={barOptions} data={barChartData} /></div>
+            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage</h2></div>
+            <div className=""><Pie options={options} data={chartData} /></div>
             <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">More Data</h2></div>
             <div className=""><Bar options={barOptions} data={barChartData} /></div>
           </div>
