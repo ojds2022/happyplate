@@ -23,7 +23,7 @@ export const options = {
 };
 
 export const barOptions = {
-  indexAxis: 'y',
+  
   responsive: true,
   plugins: {
     legend: {
@@ -34,10 +34,23 @@ export const barOptions = {
       text: 'Chart.js Bar Chart',
     },
   },
+  interaction: {
+    mode: 'index',
+    intersect: false,
+  },
+  scales: {
+    x: {
+      stacked: false,
+    },
+    y: {
+      stacked: true,
+    },
+  },
 };
 
 const NutritionBreakdown = () => {
-  const { tdee } = useTdee();
+  const tdee = 3000;
+  //const { tdee } = useTdee();
   const [showLabel, setShowLabel] = useState(false);
   const [name, setName] = useState("");
 
@@ -68,7 +81,7 @@ const [potassium, setPotassium] = useState("");*/}
     labels: [],
     datasets: [
       {
-        label: '',
+        label: 'Dataset 1',
         data: [],
         backgroundColor: [],
       },
@@ -107,11 +120,11 @@ const [potassium, setPotassium] = useState("");*/}
           label: 'percentage',
           data: [data.protein_g, data.carbohydrates_total_g, data.fat_total_g, data.sugar_g],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.7)',
-            'rgba(54, 162, 235, 0.7)',
-            'rgba(255, 206, 86, 0.7)',
-            'rgba(75, 192, 192, 0.7)',
-            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
           ],
           hoverBackgroundColor: [
             'rgba(255, 99, 132, 1)',
@@ -125,19 +138,36 @@ const [potassium, setPotassium] = useState("");*/}
     });
 
     setBarChartData({
-      labels: ['Calories', 'Carbs', 'Protein', 'Fats', 'Sugars', 'Sodium', 'Potassium'],
+      labels: ['Calories', 'Carbs', 'Protein', 'Fats', 'Sugars',],
       datasets: [
         {
-          label: '',
-          data: [data.calories, data.carbohydrates_total_g, data.protein_g, data.fat_total_g, data.sugar_g, data.sodium_mg / 1000, data.potassium_mg / 1000],
+          label: `${data.name}`,
+          data: [data.calories, data.carbohydrates_total_g, data.protein_g, data.fat_total_g, data.sugar_g,],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.7)',
-            'rgba(54, 162, 235, 0.7)',
-            'rgba(255, 206, 86, 0.7)',
-            'rgba(75, 192, 192, 0.7)',
-            'rgba(153, 102, 255, 0.7)',
-            'rgba(255, 0, 255, 0.7),',
-            'rgba(89, 45, 134, 0.7)'
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+          ],
+          hoverBackgroundColor: [
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 1)',
+          ],
+          stack: 'Stack 0',
+        },
+        {
+          label: 'RDA',
+          data: [tdee, tdee * 0.55, tdee * 0.15, tdee * 0.3, tdee * .1,],
+          backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
           ],
           hoverBackgroundColor: [
             'rgba(255, 99, 132, 1)',
@@ -145,9 +175,8 @@ const [potassium, setPotassium] = useState("");*/}
             'rgba(255, 206, 86, 1)',
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
-            'rgba(255, 0, 255, 1),',
-            'rgba(89, 45, 134, 1)'
           ],
+          stack: 'Stack 0',
         },
       ],
     });
@@ -175,13 +204,13 @@ const [potassium, setPotassium] = useState("");*/}
     >
     {showLabel === true ? (
         <>
-        <div className='grid grid-rows-2 py-28'>
-          <div className="">
+        <div className='flex py-28'>
+          <div className="grow">
             <div className="text-center"><h1 className="mb-1 text-3xl font-bold text-white capitalize">{name}</h1></div>
-            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg font-bold .home">Nutritional Breakdown (100g)</h2></div>
+            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg font-bold .home">Macronutrient Targets</h2></div>
             <div className=""><Bar options={barOptions} data={barChartData} /></div>
           </div>
-          <div>
+          <div className="grow">
             <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage</h2></div>
             <div className=""><Pie options={options} data={chartData} /></div>
             {/* <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">More Data</h2></div>

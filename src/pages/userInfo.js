@@ -111,12 +111,12 @@ const UserInfo = () => {
             {showRecCalIntake === true ? (
                 <>
                 <div className="grid h-full drop-shadow-xl">
-                    <div className="w-10/12 py-5 mb-32 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
-                        <h2 className="text-hot-pink">Your daily caloric intake recommendation is {tdee}</h2>
+                    <div className="w-10/12 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
+                        <h2 className="mt-3 text-hot-pink">Your daily caloric intake recommendation is <span className="font-bold">{tdee}</span></h2>
                         <Link to="/nutritionBreakdown">
                             <button
                                 id="searchButton"
-                                className="px-1 border-0 rounded shadow-md cursor-pointer bg-hot-pink hover:bg-pale-green"
+                                className="px-1 m-3 border-0 rounded shadow-md cursor-pointer bg-hot-pink hover:bg-pale-green"
                                 type="submit"
                             >
                                 Continue
