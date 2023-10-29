@@ -5,6 +5,8 @@ import { Pie, Bar } from 'react-chartjs-2';
 import BackgroundImage from "../assets/foodIcons.png";
 import '../styles/Home.css';
 
+import { useTdee } from "../components/TdeeContext";
+
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export const options = {
@@ -35,6 +37,7 @@ export const barOptions = {
 };
 
 const NutritionBreakdown = () => {
+  const { tdee } = useTdee();
   const [showLabel, setShowLabel] = useState(false);
   const [name, setName] = useState("");
 
@@ -87,13 +90,13 @@ const [potassium, setPotassium] = useState("");*/}
       const response = await fetch(url, options);
       const result = await response.json();
       postNutrition(result[0]);
-      console.log(result);
     } catch (error) {
       console.error(error);
     }
   };
 
   const postNutrition = (data) => {
+    console.log(tdee);
     
     setName(data.name);
 
@@ -137,13 +140,13 @@ const [potassium, setPotassium] = useState("");*/}
             'rgba(89, 45, 134, 0.7)'
           ],
           hoverBackgroundColor: [
-            'rgba(255, 99, 132, 0.7)',
-            'rgba(54, 162, 235, 0.7)',
-            'rgba(255, 206, 86, 0.7)',
-            'rgba(75, 192, 192, 0.7)',
-            'rgba(153, 102, 255, 0.7)',
-            'rgba(255, 0, 255, 0.7),',
-            'rgba(89, 45, 134, 0.7)'
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 0, 255, 1),',
+            'rgba(89, 45, 134, 1)'
           ],
         },
       ],
@@ -172,15 +175,17 @@ const [potassium, setPotassium] = useState("");*/}
     >
     {showLabel === true ? (
         <>
-        <div className='flex flex-col items-center overflow-scroll pt-28'>
-          <div className='flex-grow px-5 pb-28'>
+        <div className='grid grid-rows-2 py-28'>
+          <div className="">
             <div className="text-center"><h1 className="mb-1 text-3xl font-bold text-white capitalize">{name}</h1></div>
-            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center px-1 text-white text-lg font-bold .home">Nutritional Breakdown (100g)</h2></div>
+            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg font-bold .home">Nutritional Breakdown (100g)</h2></div>
             <div className=""><Bar options={barOptions} data={barChartData} /></div>
-            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage</h2></div>
+          </div>
+          <div>
+            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage</h2></div>
             <div className=""><Pie options={options} data={chartData} /></div>
-            <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">More Data</h2></div>
-            <div className=""><Bar options={barOptions} data={barChartData} /></div>
+            {/* <div className="my-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">More Data</h2></div>
+            <div className=""><Bar options={barOptions} data={barChartData} /></div> */}
           </div>
         </div>
         {/* <div className="z-20 grid content-center">

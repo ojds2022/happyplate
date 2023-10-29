@@ -3,10 +3,12 @@ import {Link} from "react-router-dom";
 import BackgroundImage from "../assets/foodIcons.png";
 import '../styles/Home.css';
 
+import { useTdee } from "../components/TdeeContext";
+
 
 const UserInfo = () => {
     const [showRecCalIntake, setShowRecCalIntake] = useState(false);
-    const [tdee, setTDEE] = useState("");
+    const { tdee, setTdee } = useTdee();
 
     const sedentary = 1.2;
     const lightActivite = 1.375;
@@ -42,64 +44,64 @@ const UserInfo = () => {
         const userBMR = (10 * userWeightKG) + (6.25 * userHeightCM) - (5 * userAgeNum) + 5;
 
         if (userActivityLevel === 'sedentary' && userWeightChange === 'extreme weight loss') {
-            setTDEE(Math.round(sedentary * exWeightLoss * userBMR));
+            setTdee(Math.round(sedentary * exWeightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'sedentary' && userWeightChange === 'weight loss') {
-            setTDEE(Math.round(sedentary * weightLoss * userBMR));
+            setTdee(Math.round(sedentary * weightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'sedentary' && userWeightChange === 'maintain weight') {
-            setTDEE(Math.round(sedentary * userBMR));
+            setTdee(Math.round(sedentary * userBMR));
             return;
         } else if (userActivityLevel === 'sedentary' && userWeightChange === 'weight gain') {
-            setTDEE(Math.round(sedentary * weightGain * userBMR));
+            setTdee(Math.round(sedentary * weightGain * userBMR));
             return;
         } else if (userActivityLevel === 'sedentary' && userWeightChange === 'extreme weight gain') {
-            setTDEE(Math.round(sedentary * exWeightGain * userBMR));
+            setTdee(Math.round(sedentary * exWeightGain * userBMR));
             return;
         }  else if (userActivityLevel === 'lightly active' && userWeightChange === 'extreme weight loss') {
-            setTDEE(Math.round(lightActivite * exWeightLoss * userBMR));
+            setTdee(Math.round(lightActivite * exWeightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'lightly active' && userWeightChange === 'weight loss') {
-            setTDEE(Math.round(lightActivite * weightLoss * userBMR));
+            setTdee(Math.round(lightActivite * weightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'lightly active' && userWeightChange === 'maintain weight') {
-            setTDEE(Math.round(lightActivite * userBMR));
+            setTdee(Math.round(lightActivite * userBMR));
             return;
         } else if (userActivityLevel === 'lightly active' && userWeightChange === 'weight gain') {
-            setTDEE(Math.round(lightActivite * weightGain * userBMR));
+            setTdee(Math.round(lightActivite * weightGain * userBMR));
             return;
         } else if (userActivityLevel === 'lightly active' && userWeightChange === 'extreme weight gain') {
-            setTDEE(Math.round(lightActivite * exWeightGain * userBMR));
+            setTdee(Math.round(lightActivite * exWeightGain * userBMR));
             return;
         } else if (userActivityLevel === 'moderately active' && userWeightChange === 'extreme weight loss') {
-            setTDEE(Math.round(modActivite * exWeightLoss * userBMR));
+            setTdee(Math.round(modActivite * exWeightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'moderately active' && userWeightChange === 'weight loss') {
-            setTDEE(Math.round(modActivite * weightLoss * userBMR));
+            setTdee(Math.round(modActivite * weightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'moderately active' && userWeightChange === 'maintain weight') {
-            setTDEE(Math.round(modActivite * userBMR));
+            setTdee(Math.round(modActivite * userBMR));
             return;
         } else if (userActivityLevel === 'moderately active' && userWeightChange === 'weight gain') {
-            setTDEE(Math.round(modActivite * weightGain * userBMR));
+            setTdee(Math.round(modActivite * weightGain * userBMR));
             return;
         } else if (userActivityLevel === 'moderately active' && userWeightChange === 'extreme weight gain') {
-            setTDEE(Math.round(modActivite * exWeightGain * userBMR));
+            setTdee(Math.round(modActivite * exWeightGain * userBMR));
             return;
         } else if (userActivityLevel === 'very active' && userWeightChange === 'extreme weight loss') {
-            setTDEE(Math.round(veryActive * exWeightLoss * userBMR));
+            setTdee(Math.round(veryActive * exWeightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'very active' && userWeightChange === 'weight loss') {
-            setTDEE(Math.round(veryActive * weightLoss * userBMR));
+            setTdee(Math.round(veryActive * weightLoss * userBMR));
             return;
         } else if (userActivityLevel === 'very active' && userWeightChange === 'maintain weight') {
-            setTDEE(Math.round(veryActive * userBMR));
+            setTdee(Math.round(veryActive * userBMR));
             return;
         } else if (userActivityLevel === 'very active' && userWeightChange === 'weight gain') {
-            setTDEE(Math.round(veryActive * weightGain * userBMR));
+            setTdee(Math.round(veryActive * weightGain * userBMR));
             return;
         } else if (userActivityLevel === 'very active' && userWeightChange === 'extreme weight gain') {
-            setTDEE(Math.round(veryActive * exWeightGain * userBMR));
+            setTdee(Math.round(veryActive * exWeightGain * userBMR));
             return;
         }
     }

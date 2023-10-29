@@ -8,22 +8,25 @@ import { UserInfo } from "./pages/userInfo";
 import { NutritionBreakdown } from "./pages/nutritionBreakdown";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
+import { ProvideTdee } from "./components/TdeeContext";
 
 const App = () => {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/userinfo" element={<UserInfo />} />
-          <Route path="/nutritionBreakdown" element={<NutritionBreakdown />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+    <ProvideTdee>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/userinfo" element={<UserInfo />} />
+            <Route path="/nutritionBreakdown" element={<NutritionBreakdown />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
+    </ProvideTdee>
   );
 };
 
