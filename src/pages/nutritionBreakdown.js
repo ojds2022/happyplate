@@ -215,25 +215,31 @@ const NutritionBreakdown = () => {
     style={{ backgroundImage: `url(${BackgroundImage})` }}
     >
     {showLabel === true ? (
-        <div className='flex flex-col py-28'>
+        <div className='flex flex-col py-24'>
           <div className="grow">
-            <div className="text-center"><h1 className="mb-1 text-3xl font-bold text-white capitalize">{name}</h1></div>
-            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg font-bold .home">Macronutrient Targets</h2></div>
+            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg font-bold .home">Daily Nutritional Targets</h2></div>
             <div className="mx-2 rounded bg-opacity-90 bg-sky-blue"><Bar options={barChartOptions} data={barChartData} /></div>
           </div>
-          <div className="mt-16 grow">
-            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage</h2></div>
+          <div className="mt-20 grow">
+            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage: <span className="capitalize">{name}</span></h2></div>
             <div className="mx-3 rounded bg-opacity-90 bg-sky-blue"><Pie options={pieChartOptions} data={pieChartData} /></div>
           </div>
           <div className="mx-auto mt-5">
-            <button id='searchAgain' className='w-24 border-0 rounded cursor-pointer xxs:text-xl xxs:w-32 xxs:h-8 xl:w-40 xl:h-10 xl:text-xl 3xl:w-72 3xl:h-20 3xl:text-4xl xl:rounded-lg 3xl:rounded-2xl' onClick={() => setShowLabel(false)}>Add more</button>
+            <button 
+              id='searchAgain' 
+              className='w-24 border-0 rounded cursor-pointer xxs:text-xl xxs:w-32 xxs:h-8 xl:w-40 xl:h-10 xl:text-xl 3xl:w-72 3xl:h-20 3xl:text-4xl xl:rounded-lg 3xl:rounded-2xl'
+              title='add more foods/beverages to your daily nutritional targets'
+              onClick={() => setShowLabel(false)}
+            >
+                    Add more
+            </button>
           </div>
         </div>
     ) : (
         <div className="grid h-screen drop-shadow-xl">
           <div className="w-10/12 py-5 mb-32 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
             <h2 className="mx-auto mb-3 text-xl rounded xl:text-3xl 3xl:text-6xl 3xl:p-4 text-hot-pink">
-                Enter a food or beverage to get a nutritional percentage breakdown!
+                Enter a food or beverage to get nutritional information and add it to your daily nutritional targets!
             </h2>
             <input id="inputField" className="xl:w-60 xl:h-12 xl:text-2xl 3xl:w-96 3xl:h-20 3xl:text-4xl" type="text" placeholder="Enter here..." />
             <button
