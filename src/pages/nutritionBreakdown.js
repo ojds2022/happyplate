@@ -236,9 +236,9 @@ const NutritionBreakdown = () => {
           </div>
         </div>
     ) : (
-        <div className="grid h-screen drop-shadow-xl">
-          <div className="w-10/12 py-5 mb-32 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
-            <h2 className="mx-auto mb-3 text-xl rounded xl:text-3xl 3xl:text-6xl 3xl:p-4 text-hot-pink">
+        <div className="grid h-screen">
+          <div className="w-10/12 p-5 mb-32 text-center lg:w-1/2 drop-shadow-xl place-self-center bg-corn-silk md:w-8/12 rounded-xl">
+            <h2 className="mx-auto mb-3 text-xl rounded xs:text-2xl lg:text-3xl xl:text-4xl 3xl:text-6xl 3xl:p-4 text-hot-pink">
                 Enter a food or beverage to get nutritional information and add it to your daily nutritional targets!
             </h2>
             <input id="inputField" className="xl:w-60 xl:h-12 xl:text-2xl 3xl:w-96 3xl:h-20 3xl:text-4xl" type="text" placeholder="Enter here..." />
