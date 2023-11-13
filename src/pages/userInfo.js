@@ -126,73 +126,73 @@ const UserInfo = () => {
                 </div>
                 </>
             ) : (
-                <>
-                <div className="flex flex-col drop-shadow-xl">
-                    <div className="w-10/12 py-1 mt-24 place-self-center bg-corn-silk rounded-xl">
-                        <h2 className="text-xl text-center text-hot-pink">
-                            Please enter your:
-                        </h2>
-                        <form onSubmit={getUserInput} className="py-0">
-                            <div className="flex flex-col">
-                                <div className="pb-2">
-                                    <span className="pr-3 text-hot-pink">Age</span>
-                                    <input id="userAge" className="w-2/3" type="text" placeholder="years" required />
-                                </div>
-                                {/*<div className="">
-                                    <div id="radio-buttons">
-                                        <span className="pr-3 text-hot-pink">Sex</span>
-                                        <label for="male" className="radio-inline">Male</label>
-                                        <input type="radio" id="male" name="sex" value="male" className="" />
-                                        <label for="female" className="radio-inline">Female</label>
-                                        <input type="radio" id="female" name="sex" value="female" className="" />
+                <div className="grid h-full place-content-center">
+                    <div className="flex flex-col drop-shadow-xl">
+                        <div className="w-10/12 py-1 place-self-center bg-corn-silk rounded-xl">
+                            <h2 className="p-2 text-lg font-bold text-center lg:p-4 xl:p-8 xxs:text-xl lg:text-2xl xl:text-4xl text-hot-pink">
+                                Please enter your:
+                            </h2>
+                            <form onSubmit={getUserInput} className="py-0">
+                                <div className="flex flex-col">
+                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-12">
+                                        <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Age</span>
+                                        <input id="userAge" className="w-2/3" type="text" placeholder="years" required />
                                     </div>
-                </div>*/}
-                                <div className="pb-2">
-                                    <span className="pr-3 text-hot-pink">Weight</span>
-                                    <input id="userWeight" className="w-2/3" type="text" placeholder="pounds" required />
+                                    {/*<div className="">
+                                        <div id="radio-buttons">
+                                            <span className="pr-3 text-hot-pink">Sex</span>
+                                            <label for="male" className="radio-inline">Male</label>
+                                            <input type="radio" id="male" name="sex" value="male" className="" />
+                                            <label for="female" className="radio-inline">Female</label>
+                                            <input type="radio" id="female" name="sex" value="female" className="" />
+                                        </div>
+                    </div>*/}
+                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-12">
+                                        <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Weight</span>
+                                        <input id="userWeight" className="w-2/3" type="text" placeholder="pounds" required />
+                                    </div>
+                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-12">
+                                        <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Height</span>
+                                        <span className="pr-1 lg:pr-4">
+                                            <input id="userHeightFeet" className="w-1/3" type="text" placeholder="feet" required />
+                                        </span>
+                                        <span className="">
+                                            <input id="userHeightInches" className="w-1/3" type="text" placeholder="inches" required />
+                                        </span>
+                                    </div>
+                                    <div className="pb-2 text-center xxs:pb-4 lg:pb-8 xl:pb-12">
+                                        <label for="pet-select" className="text-hot-pink lg:text-xl xl:text-2xl lg:pr-2">Activity Level</label>
+                                        <select name="activityLevel" id="activity-level" required>
+                                            <option value="">--Please choose an option--</option>
+                                            <option value="sedentary">Sedentary</option>
+                                            <option value="lightly active">Lightly Active</option>
+                                            <option value="moderately active">Moderately Active</option>
+                                            <option value="very active">Very Active</option>
+                                        </select>
+                                    </div>
+                                    <div className="text-center">
+                                        <label for="pet-select" className="text-hot-pink lg:text-xl xl:text-2xl">Desired Weight Change</label>
+                                        <select name="weightChange" id="weight-change" required>
+                                            <option value="">--Please choose an option--</option>
+                                            <option value="extreme weight loss">Fast Weight Loss - 2 lb/wk</option>
+                                            <option value="weight loss">Weight Loss - 1 lb/wk</option>
+                                            <option value="maintain weight">Maintain Weight</option>
+                                            <option value="weight gain">Weight Gain - 1 lb/wk</option>
+                                            <option value="extreme weight gain">Fast Weight Gain - 2 lb/wk</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div className="pb-2">
-                                    <span className="pr-3 text-hot-pink">Height</span>
-                                    <span className="pr-1">
-                                        <input id="userHeightFeet" className="w-1/3" type="text" placeholder="feet" required />
-                                    </span>
-                                    <span className="">
-                                        <input id="userHeightInches" className="w-1/3" type="text" placeholder="inches" required />
-                                    </span>
-                                </div>
-                                <div className="pb-2 text-center">
-                                    <label for="pet-select" className="text-hot-pink">Activity Level</label>
-                                    <select name="activityLevel" id="activity-level" required>
-                                        <option value="">--Please choose an option--</option>
-                                        <option value="sedentary">Sedentary</option>
-                                        <option value="lightly active">Lightly Active</option>
-                                        <option value="moderately active">Moderately Active</option>
-                                        <option value="very active">Very Active</option>
-                                    </select>
-                                </div>
-                                <div className="text-center">
-                                    <label for="pet-select" className="text-hot-pink">Desired Weight Change</label>
-                                    <select name="weightChange" id="weight-change" required>
-                                        <option value="">--Please choose an option--</option>
-                                        <option value="extreme weight loss">Fast Weight Loss - 2 lb/wk</option>
-                                        <option value="weight loss">Weight Loss - 1 lb/wk</option>
-                                        <option value="maintain weight">Maintain Weight</option>
-                                        <option value="weight gain">Weight Gain - 1 lb/wk</option>
-                                        <option value="extreme weight gain">Fast Weight Gain - 2 lb/wk</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button
-                                id="searchButton"
-                                className="mb-2 border-0 rounded shadow-md cursor-pointer place-self-center bg-hot-pink hover:bg-pale-green"
-                                type="submit"
-                            >
-                                Continue
-                            </button>
-                        </form>
+                                <button
+                                    id="searchButton"
+                                    className="w-1/2 h-8 my-2 border-0 rounded shadow-md cursor-pointer xxs:h-10 lg:h-12 xl:h-16 lg:rounded-lg lg:mt-8 lg:mb-4 xl:mt-12 xl:mb-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
+                                    type="submit"
+                                >
+                                    Continue
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                </>
             )}
         </div>
     );
