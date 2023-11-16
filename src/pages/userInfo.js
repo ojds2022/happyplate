@@ -112,11 +112,12 @@ const UserInfo = () => {
                 <>
                 <div className="grid h-full drop-shadow-xl">
                     <div className="w-10/12 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
-                        <h2 className="mt-3 text-hot-pink">Your daily caloric intake recommendation is <span className="font-bold">{tdee}</span></h2>
+                        <h2 className="mt-3 text-hot-pink xs:text-lg lg:text-2xl">Your daily caloric intake recommendation is</h2>
+                        <p className="text-3xl font-bold text-hot-pink lg:mt-4">{tdee}</p>
                         <Link to="/nutritionBreakdown">
                             <button
                                 id="searchButton"
-                                className="px-1 m-3 border-0 rounded shadow-md cursor-pointer bg-hot-pink hover:bg-pale-green"
+                                className="w-1/2 h-8 my-2 border-0 rounded shadow-md cursor-pointer xxs:h-10 lg:h-12 xl:h-16 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
                                 type="submit"
                             >
                                 Continue
@@ -134,7 +135,7 @@ const UserInfo = () => {
                             </h2>
                             <form onSubmit={getUserInput} className="py-0">
                                 <div className="flex flex-col">
-                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-12">
+                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-4">
                                         <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Age</span>
                                         <input id="userAge" className="w-2/3" type="text" placeholder="years" required />
                                     </div>
@@ -147,11 +148,11 @@ const UserInfo = () => {
                                             <input type="radio" id="female" name="sex" value="female" className="" />
                                         </div>
                     </div>*/}
-                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-12">
+                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-4">
                                         <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Weight</span>
                                         <input id="userWeight" className="w-2/3" type="text" placeholder="pounds" required />
                                     </div>
-                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-12">
+                                    <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-4">
                                         <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Height</span>
                                         <span className="pr-1 lg:pr-4">
                                             <input id="userHeightFeet" className="w-1/3" type="text" placeholder="feet" required />
@@ -160,7 +161,7 @@ const UserInfo = () => {
                                             <input id="userHeightInches" className="w-1/3" type="text" placeholder="inches" required />
                                         </span>
                                     </div>
-                                    <div className="pb-2 text-center xxs:pb-4 lg:pb-8 xl:pb-12">
+                                    <div className="pb-2 text-center xxs:pb-4 lg:pb-8 xl:pb-4">
                                         <label for="pet-select" className="text-hot-pink lg:text-xl xl:text-2xl lg:pr-2">Activity Level</label>
                                         <select name="activityLevel" id="activity-level" required>
                                             <option value="">--Please choose an option--</option>
@@ -184,7 +185,7 @@ const UserInfo = () => {
                                 </div>
                                 <button
                                     id="searchButton"
-                                    className="w-1/2 h-8 my-2 border-0 rounded shadow-md cursor-pointer xxs:h-10 lg:h-12 xl:h-16 lg:rounded-lg lg:mt-8 lg:mb-4 xl:mt-12 xl:mb-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
+                                    className="w-1/2 h-8 my-2 border-0 rounded shadow-md cursor-pointer xxs:h-10 lg:h-12 xl:h-16 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
                                     type="submit"
                                 >
                                     Continue
