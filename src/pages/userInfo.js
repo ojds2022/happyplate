@@ -111,13 +111,13 @@ const UserInfo = () => {
             {showRecCalIntake === true ? (
                 <>
                 <div className="grid h-full drop-shadow-xl">
-                    <div className="w-10/12 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl">
-                        <h2 className="mt-3 text-hot-pink xs:text-lg lg:text-2xl">Your daily caloric intake recommendation is</h2>
-                        <p className="text-3xl font-bold text-hot-pink lg:mt-4">{tdee}</p>
+                    <div className="w-10/12 text-center place-self-center bg-corn-silk md:w-8/12 rounded-xl 2xl:rounded-2xl">
+                        <h2 className="mt-3 text-hot-pink xs:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl">Your daily caloric intake recommendation is</h2>
+                        <p className="text-3xl font-bold lg:text-4xl xl:text-5xl 2xl:text-6xl text-hot-pink lg:mt-4">{tdee}</p>
                         <Link to="/nutritionBreakdown">
                             <button
                                 id="searchButton"
-                                className="w-1/2 h-8 my-2 border-0 rounded shadow-md cursor-pointer xxs:h-10 lg:h-12 xl:h-16 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
+                                className="w-1/2 h-8 my-2 text-white border-0 rounded shadow-md cursor-pointer md:w-1/3 xxs:h-10 lg:h-12 xl:h-16 2xl:w-1/4 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
                                 type="submit"
                             >
                                 Continue
