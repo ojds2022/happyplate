@@ -211,20 +211,20 @@ const NutritionBreakdown = () => {
 
   return (
     <div
-    className="bg-center bg-50% bg-sky-blue home"
+    className="bg-center bg-50% lg:h-screen bg-sky-blue home"
     style={{ backgroundImage: `url(${BackgroundImage})` }}
     >
     {showLabel === true ? (
-        <div className='flex flex-col py-24'>
-          <div className="grow">
+        <div className='flex flex-col flex-wrap py-24 lg:flex-row'>
+          <div className="flex-1 md:w-3/4 lg:w-4/5 md:mx-auto 2xl:mt-20">
             <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg font-bold .home">Daily Nutritional Targets</h2></div>
-            <div className="mx-2 rounded bg-opacity-90 bg-sky-blue"><Bar options={barChartOptions} data={barChartData} /></div>
+            <div className="mx-2 rounded lg:pt-20 bg-opacity-90 bg-sky-blue"><Bar options={barChartOptions} data={barChartData} /></div>
           </div>
-          <div className="mt-20 grow">
+          <div className="flex-1 mt-20 md:w-3/4 md:mx-auto lg:w-1/5 lg:mt-0 2xl:mt-20">
             <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage: <span className="capitalize">{name}</span></h2></div>
-            <div className="mx-3 rounded bg-opacity-90 bg-sky-blue"><Pie options={pieChartOptions} data={pieChartData} /></div>
+            <div className="mx-3 rounded md:pt-20 lg:pl-16 xl:pl-44 lg:h-5/6 bg-opacity-90 bg-sky-blue"><Pie options={pieChartOptions} data={pieChartData} /></div>
           </div>
-          <div className="mx-auto mt-5">
+          <div className="mx-auto mt-5 lg:w-full lg:grid lg:place-content-center">
             <button 
               id='searchAgain' 
               className='w-24 border-0 rounded cursor-pointer xxs:text-xl xxs:w-32 xxs:h-8 xl:w-40 xl:h-10 xl:text-xl 3xl:w-72 3xl:h-20 3xl:text-4xl xl:rounded-lg 3xl:rounded-2xl'
