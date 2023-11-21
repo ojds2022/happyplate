@@ -217,12 +217,12 @@ const NutritionBreakdown = () => {
     {showLabel === true ? (
         <div className='flex flex-col flex-wrap py-24 lg:flex-row'>
           <div className="flex-1 md:w-3/4 lg:w-4/5 md:mx-auto 2xl:mt-20">
-            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg font-bold .home">Daily Nutritional Targets</h2></div>
+            <div className="m-5 rounded-md lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Daily Nutritional Targets</h2></div>
             <div className="mx-2 rounded lg:pt-20 bg-opacity-90 bg-sky-blue"><Bar options={barChartOptions} data={barChartData} /></div>
           </div>
           <div className="flex-1 mt-20 md:w-3/4 md:mx-auto lg:w-1/5 lg:mt-0 2xl:mt-20">
-            <div className="m-5 rounded-md drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl font-bold .home">Nutritional Percentage: <span className="capitalize">{name}</span></h2></div>
-            <div className="mx-3 rounded md:pt-20 lg:pl-16 xl:pl-44 lg:h-5/6 bg-opacity-90 bg-sky-blue"><Pie options={pieChartOptions} data={pieChartData} /></div>
+            <div className="m-5 rounded-md lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Nutritional Percentage: <span className="capitalize">{name}</span></h2></div>
+            <div className="mx-3 rounded md:pt-20 lg:pl-28 xl:pl-44 lg:h-5/6 bg-opacity-90 bg-sky-blue"><Pie options={pieChartOptions} data={pieChartData} /></div>
           </div>
           <div className="mx-auto mt-5 lg:w-full lg:grid lg:place-content-center">
             <button 
