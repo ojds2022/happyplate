@@ -26,7 +26,7 @@ const Home = () => {
             </p>
           </div>
           <Link to="/userinfo">
-            <button className="w-1/2 h-12 mt-4 text-xl text-white border-0 rounded-md cursor-pointer md:h-12 md:w-1/3 lg:h-14 lg:mt-10 xl:mt-8 xl:h-16 xl:text-3xl 2xl:w-1/5 2xl:mt-28 3xl:h-40 3xl:rounded-3xl 3xl:text-7xl bg-hot-pink hover:bg-pale-green drop-shadow-lg hover:drop-shadow-xl">
+            <button className="w-1/2 h-12 mt-4 text-xl text-white border-0 rounded-md cursor-pointer md:h-12 md:w-1/3 lg:h-14 lg:mt-10 xl:my-4 xl:h-16 xl:text-3xl 2xl:w-1/5 2xl:mt-28 3xl:h-40 3xl:rounded-3xl 3xl:text-7xl bg-hot-pink hover:bg-pale-green drop-shadow-lg hover:drop-shadow-xl">
               Continue
             </button>
           </Link>

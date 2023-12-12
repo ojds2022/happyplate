@@ -216,7 +216,7 @@ const NutritionBreakdown = () => {
     >
     {showLabel === true ? (
         <div className='flex flex-col flex-wrap py-24 lg:flex-row'>
-          <div className="flex-1 md:w-3/4 lg:w-4/5 md:mx-auto 2xl:mt-20">
+          <div className="flex-1 mb-1 md:w-3/4 lg:w-4/5 md:mx-auto 2xl:mt-20">
             <div className="m-5 rounded-md lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Daily Nutritional Targets</h2></div>
             <div className="mx-2 rounded lg:pt-20 bg-opacity-90 bg-sky-blue"><Bar options={barChartOptions} data={barChartData} /></div>
           </div>
@@ -224,10 +224,10 @@ const NutritionBreakdown = () => {
             <div className="m-5 rounded-md lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Nutritional Percentage: <span className="capitalize">{name}</span></h2></div>
             <div className="mx-3 rounded md:pt-20 lg:pl-28 xl:pl-44 lg:h-5/6 bg-opacity-90 bg-sky-blue"><Pie options={pieChartOptions} data={pieChartData} /></div>
           </div>
-          <div className="mx-auto mt-5 lg:w-full lg:grid lg:place-content-center">
+          <div className="mx-auto lg:w-full lg:grid lg:place-content-center">
             <button 
-              id='searchAgain' 
-              className='w-24 border-0 rounded cursor-pointer xxs:text-xl xxs:w-32 xxs:h-8 xl:w-40 xl:h-10 xl:text-xl 3xl:w-72 3xl:h-20 3xl:text-4xl xl:rounded-lg 3xl:rounded-2xl'
+              id='' 
+              className='w-24 text-white border-0 rounded cursor-pointer bg-hot-pink hover:bg-pale-green xxs:text-xl xxs:w-32 xxs:h-8 xl:w-40 xl:h-10 xl:text-xl 3xl:w-72 3xl:h-20 3xl:text-4xl xl:rounded-lg 3xl:rounded-2xl'
               title='add more foods/beverages to your daily nutritional targets'
               onClick={() => setShowLabel(false)}
             >
@@ -244,7 +244,7 @@ const NutritionBreakdown = () => {
             <input id="inputField" className="xl:w-60 xl:h-12 xl:text-2xl 3xl:w-96 3xl:h-20 3xl:text-4xl" type="text" placeholder="Enter here..." />
             <button
                 id="searchButton"
-                className="h-6 ml-1 border-0 rounded shadow-md cursor-pointer w-14 xl:h-12 xl:w-32 3xl:h-20 3xl:w-44 xl:text-xl 3xl:text-3xl xl:ml-3 3xl:ml-5 3xl:rounded-xl bg-hot-pink hover:bg-pale-green"
+                className="h-6 ml-1 text-white border-0 rounded shadow-md cursor-pointer w-14 xl:h-12 xl:w-32 3xl:h-20 3xl:w-44 xl:text-xl 3xl:text-3xl xl:ml-3 3xl:ml-5 3xl:rounded-xl bg-hot-pink hover:bg-pale-green"
                 type="submit"
                 onClick={fetchNutrition}
             >

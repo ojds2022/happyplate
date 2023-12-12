@@ -117,7 +117,7 @@ const UserInfo = () => {
                         <Link to="/nutritionBreakdown">
                             <button
                                 id="searchButton"
-                                className="w-1/2 h-8 my-2 text-white border-0 rounded shadow-md cursor-pointer md:w-1/3 xxs:h-10 lg:h-12 xl:h-16 2xl:w-1/4 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
+                                className="w-1/2 h-8 my-2 text-white border-0 rounded shadow-md cursor-pointer md:w-1/3 xxs:h-10 lg:h-12 xl:h-16 2xl:w-1/4 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-4 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
                                 type="submit"
                             >
                                 Continue
@@ -130,13 +130,13 @@ const UserInfo = () => {
                 <div className="grid h-full place-content-center">
                     <div className="flex flex-col drop-shadow-xl">
                         <div className="w-10/12 py-1 place-self-center bg-corn-silk rounded-xl">
-                            <h2 className="p-2 text-lg font-bold text-center lg:p-4 xl:p-8 xxs:text-xl lg:text-2xl xl:text-4xl text-hot-pink">
+                            <h2 className="p-2 text-lg font-bold text-center lg:p-4 xxs:text-xl lg:text-2xl xl:text-4xl text-hot-pink">
                                 Please enter your:
                             </h2>
                             <form onSubmit={getUserInput} className="py-0">
                                 <div className="flex flex-col">
                                     <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-4">
-                                        <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Age</span>
+                                        <span className="pr-3 text-hot-pink lg:text-xl 2xl:text-2xl">Age</span>
                                         <input id="userAge" className="w-2/3" type="text" placeholder="years" required />
                                     </div>
                                     {/*<div className="">
@@ -149,11 +149,11 @@ const UserInfo = () => {
                                         </div>
                     </div>*/}
                                     <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-4">
-                                        <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Weight</span>
+                                        <span className="pr-3 text-hot-pink lg:text-xl 2xl:text-2xl">Weight</span>
                                         <input id="userWeight" className="w-2/3" type="text" placeholder="pounds" required />
                                     </div>
                                     <div className="pb-2 xxs:pb-4 lg:pb-8 xl:pb-4">
-                                        <span className="pr-3 text-hot-pink lg:text-xl xl:text-2xl">Height</span>
+                                        <span className="pr-3 text-hot-pink lg:text-xl 2xl:text-2xl">Height</span>
                                         <span className="pr-1 lg:pr-4">
                                             <input id="userHeightFeet" className="w-1/3" type="text" placeholder="feet" required />
                                         </span>
@@ -162,7 +162,7 @@ const UserInfo = () => {
                                         </span>
                                     </div>
                                     <div className="pb-2 text-center xxs:pb-4 lg:pb-8 xl:pb-4">
-                                        <label for="pet-select" className="text-hot-pink lg:text-xl xl:text-2xl lg:pr-2">Activity Level</label>
+                                        <label for="pet-select" className="text-hot-pink lg:text-xl 2xl:text-2xl lg:pr-2">Activity Level</label>
                                         <select name="activityLevel" id="activity-level" required>
                                             <option value="">--Please choose an option--</option>
                                             <option value="sedentary">Sedentary</option>
@@ -172,7 +172,7 @@ const UserInfo = () => {
                                         </select>
                                     </div>
                                     <div className="text-center">
-                                        <label for="pet-select" className="text-hot-pink lg:text-xl xl:text-2xl">Desired Weight Change</label>
+                                        <label for="pet-select" className="text-hot-pink lg:text-xl 2xl:text-2xl">Desired Weight Change</label>
                                         <select name="weightChange" id="weight-change" required>
                                             <option value="">--Please choose an option--</option>
                                             <option value="extreme weight loss">Fast Weight Loss - 2 lb/wk</option>
@@ -185,7 +185,7 @@ const UserInfo = () => {
                                 </div>
                                 <button
                                     id="searchButton"
-                                    className="w-1/2 h-8 my-2 border-0 rounded shadow-md cursor-pointer xxs:h-10 lg:h-12 xl:h-16 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-8 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
+                                    className="w-1/2 h-8 my-2 border-0 rounded shadow-md cursor-pointer xxs:h-10 lg:h-12 xl:h-16 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-4 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
                                     type="submit"
                                 >
                                     Continue
