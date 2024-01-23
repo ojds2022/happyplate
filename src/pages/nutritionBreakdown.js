@@ -126,17 +126,17 @@ const NutritionBreakdown = () => {
     const cumulativeSugars = previousSugar + sugarCals;
 
     setBarChartData({
-      labels: ['Calories', 'Carbs', 'Protein', 'Fats', 'Sugars',], 
+      labels: ['Calories (g)', 'Carbs (g)', 'Protein (g)', 'Fats (g)', 'Sugars (g)',], 
       datasets: [
         {
           label: 'Current total',
           data: [cumulativeCals, cumulativeCarbs, cumulativeProteins, cumulativeFats, cumulativeSugars],
           backgroundColor: [
-            'rgba(0, 255, 0, 1)',
-            'rgba(0, 255, 0, 1)',
-            'rgba(0, 255, 0, 1)',
-            'rgba(0, 255, 0, 1)',
-            'rgba(0, 255, 0, 1)',
+            'rgba(0, 255, 0, 0.8)',
+            'rgba(0, 255, 0, 0.8)',
+            'rgba(0, 255, 0, 0.8)',
+            'rgba(0, 255, 0, 0.8)',
+            'rgba(0, 255, 0, 0.8)',
           ],
           hoverBackgroundColor: [
             'rgba(0, 255, 0, 1)',
@@ -148,14 +148,14 @@ const NutritionBreakdown = () => {
           stack: 'Stack 0',
         },
         {
-          label: 'RDA',
+          label: 'Daily target gap',
           data: [tdee - cumulativeCals, (tdee * 0.55) - cumulativeCarbs, (tdee * 0.15) - cumulativeProteins, (tdee * 0.3) - cumulativeFats, (tdee * .1) - cumulativeSugars],
           backgroundColor: [
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 0.8)',
+            'rgba(255, 99, 132, 0.8)',
+            'rgba(54, 162, 235, 0.8)',
+            'rgba(255, 206, 86, 0.8)',
+            'rgba(75, 192, 192, 0.8)',
           ],
           hoverBackgroundColor: [
             'rgba(153, 102, 255, 1)',
@@ -217,11 +217,11 @@ const NutritionBreakdown = () => {
     {showLabel === true ? (
         <div className='flex flex-col flex-wrap py-24 lg:flex-row'>
           <div className="flex-1 mb-1 md:w-3/4 lg:w-4/5 md:mx-auto 2xl:mt-20">
-            <div className="m-5 rounded-md lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Daily Nutritional Targets</h2></div>
+            <div className="m-5 rounded-md xs:mx-28 sm:mx-40 md:mx-32 lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Daily Nutritional Targets</h2></div>
             <div className="mx-2 rounded lg:pt-20 bg-opacity-90 bg-sky-blue"><Bar options={barChartOptions} data={barChartData} /></div>
           </div>
           <div className="flex-1 mt-20 md:w-3/4 md:mx-auto lg:w-1/5 lg:mt-0 2xl:mt-20">
-            <div className="m-5 rounded-md lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Nutritional Percentage: <span className="capitalize">{name}</span></h2></div>
+            <div className="mx-10 my-5 rounded-md xs:mx-28 sm:mx-40 md:mx-32 lg:w-2/3 lg:mx-auto drop-shadow-xl bg-hot-pink"><h2 className="text-center text-white text-xl xl:text-2xl 2xl:text-3xl font-bold .home">Nutritional Percentage: <span className="capitalize">{name}</span></h2></div>
             <div className="mx-3 rounded md:pt-20 lg:pl-28 xl:pl-44 lg:h-5/6 bg-opacity-90 bg-sky-blue"><Pie options={pieChartOptions} data={pieChartData} /></div>
           </div>
           <div className="mx-auto lg:w-full lg:grid lg:place-content-center">

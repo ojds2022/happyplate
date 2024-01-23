@@ -7,7 +7,7 @@ import "../styles/Footer.css";
 
 const Footer = () => {
   return (
-    <div className="fixed bottom-0 left-0 flex flex-col w-full h-20 text-center xl:h-24 2xl:h-40 footer bg-corn-silk">
+    <div className="fixed bottom-0 left-0 flex flex-col w-full h-20 text-center xl:h-24 2xl:h-32 footer bg-corn-silk">
       <div id="socialMedia" className="pt-2 text-pink">
         <span className="hover:text-pale-green"><InstagramIcon /></span>
         <span className="hover:text-pale-green"><TwitterIcon /></span>

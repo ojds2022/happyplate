@@ -117,7 +117,7 @@ const UserInfo = () => {
                         <Link to="/nutritionBreakdown">
                             <button
                                 id="searchButton"
-                                className="w-1/2 h-8 my-2 text-white border-0 rounded shadow-md cursor-pointer md:w-1/3 xxs:h-10 lg:h-12 xl:h-16 2xl:w-1/4 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-4 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
+                                className="w-1/2 h-8 my-2 text-white border-0 rounded shadow-md cursor-pointer xs:w-1/4 xxs:h-10 lg:h-12 xl:h-16 2xl:w-1/4 lg:rounded-lg lg:mt-8 lg:mb-4 xl:my-4 xl:text-3xl lg:text-xl xxs:my-4 place-self-center bg-hot-pink hover:bg-pale-green"
                                 type="submit"
                             >
                                 Continue
